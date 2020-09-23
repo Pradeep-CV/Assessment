@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+    <script>
+        var details = [];
+        function validateFields()
+        {
+            for (const key in details)
+            {
+                alert(details[key]);
+                if(details[key] == document.myForm.uName.value)
+                {
+                    alert("Name Exists..!");
+                    return 0;
+                }
+            }
+            if(document.myForm.uName.value == "" || document.myForm.uName.value.length < 3)
+            {
+                alert("Name: Invalid");
+            }
+            else if(document.myForm.uPassword.value == "" || !document.myForm.uPassword.value.match(/[a-z A-Z 0-9][@#$%][a-z A-Z 0-9]/))
+            {
+                alert("Password: Invalid");
+            }
+            else if(document.myForm.uEmail.value == "" || !document.myForm.uEmail.value.match(/[a-z A-Z 0-9]@[a-z A-Z].[a-z A-Z]/g))
+            {
+                alert("Email: Invalid");
+            }
+            else if(document.myForm.uPhone.value == "" || !document.myForm.uPhone.value.match(/^[0-9]{10}$/g))
+            {
+                alert("Phone Number: Invalid");
+            }
+            else
+            {
+                document.getElementById("myDiv").innerHTML = "Success..!";
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div>
+        <form onsubmit = "validateFields()" name="myForm">
+            Username <input type="text" name="uName"> <br>
+            Password <input type="password" name="uPassword"> <br>
+            Email <input type="text" name="uEmail"> <br>
+            Phone <input type="number" name="uPhone"> <br>
+            <input type="submit">
+        </form>
+    </div>
+
+    <div id="myDiv">
+
+    </div>
+</body>
+</html>
