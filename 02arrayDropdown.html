@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Down</title>
+    <script>
+        var laptops = ["Lenovo", "Sony", "HP"];
+        var mobiles = ["IPhone", "Samsung", "Sony"];
+        var tvs = ["LG", "TCL", "Philips"];
+        action = () =>
+        {
+            var desc=document.getElementById("select");
+            var info = desc.options[desc.selectedIndex].value;
+            
+            if(info == "lap")
+            {
+                document.getElementById("demo").innerHTML = laptops;
+            }
+            else if(info == "tv")
+            {
+                document.getElementById("demo").innerHTML = tvs;
+            }
+            else if(info == "mob")
+            {
+                document.getElementById("demo").innerHTML = mobiles;
+            }
+            else
+            {
+                alert("invalid");
+            }
+        }
+
+    </script> 
+</head>
+<body>
+    <center>
+        <h1></h1> 
+        <select id="select" onchange="action()">
+            <option>--Products--</option>
+            <option value="lap">Laptop</option>
+            <option value="mob">Mobile</option>
+            <option value="tv">TV</option>
+    </select>
+    <div id="demo" style="background-color: aqua; margin-top: 20px; width: 200px;"></div>
+    </center>
+</body>
+</html>
